@@ -4,20 +4,22 @@ require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    // let missionTarget = document.getElementById("missionTarget");
-    // missionTarget.innerHTML= 
+    let missionTarget = document.getElementById("missionTarget");
+    missionTarget.innerHTML= 
     
-    //              <h2>Mission Destination</h2>
-    //              <ol>
-    //                  <li>Name:${name} </li>
-    //                  <li>Diameter:${diameter} </li>
-    //                  <li>Star: ${star}</li>
-    //                  <li>Distance from Earth:${distance} </li>
-    //                  <li>Number of Moons:${moons} </li>
-    //              </ol>
-    //              <img src="${imageURL}">
+           <div>     
+             <h2>Mission Destination</h2>
+                 <ol>
+                     <li>Name:${name} </li>
+                     <li>Diameter:${diameter} </li>
+                     <li>Star: ${star}</li>
+                     <li>Distance from Earth:${distance} </li>
+                     <li>Number of Moons:${moons} </li>
+                 </ol>
+                 <img src="${imageURL}"/>
+            </div>
     
- };
+ }
  
  function validateInput(testInput) {
     if (testInput === "") {
@@ -39,11 +41,20 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 //.toHave Style means to change css styling noun.style
    
 
-    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel ) !== "is a Number" || validateInput(cargoLevel) !== "Is a Number") { 
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel ) === "Empty" || validateInput(cargoLevel) === "Empty") { 
          alert("All fields are requied and must have valid inputs!") 
+        } else if (validateInput(pilot) === "is a number" || validateInput(copilot) ==="is a number")
+        {
+            alert("Must enter valid names!")
+        } else if (validateInput(fuelLevel) ==="isNan" || validateInput(cargoLevel) === "isNan") 
+        {       
+            alert("Must enter numbers!")
         } else {
-            pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-            copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+        }
+        
+    
 
 // if statement for fuel being too low             
             if (fuelLevel < 10000) {
@@ -74,7 +85,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 cargoStatus.innerHTML = 'Cargo mass low enough for Launch';
             }
         }
-    }
+    
 
 
  
