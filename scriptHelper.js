@@ -1,5 +1,6 @@
 // Write your helper functions here!
 
+
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
@@ -7,7 +8,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let missionTarget = document.getElementById("missionTarget");
     missionTarget.innerHTML= 
     
-           <div>     
+           `     
              <h2>Mission Destination</h2>
                  <ol>
                      <li>Name:${name} </li>
@@ -16,8 +17,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Distance from Earth:${distance} </li>
                      <li>Number of Moons:${moons} </li>
                  </ol>
-                 <img src="${imageURL}"/>
-            </div>
+                 <img src="${imageUrl}"/>
+            `
     
  }
  
@@ -34,9 +35,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let pilotStatus = document.getElementById('pilotStatus')
     let copilotStatus = document.getElementById('copilotStatus')
-    let fuelStatus = document.getElementById('fuelstatus')
+    let fuelStatus = document.getElementById('fuelStatus')
     let cargoStatus = document.getElementById('cargoStatus')
-    let launchStatus = document.getElementById('launchstatus')
+    let launchStatus = document.getElementById('launchStatus')
+    // let list = document.getElementById('faultyItems')
 //.toHaveTextContent means noun.innerHTML
 //.toHave Style means to change css styling noun.style
    
@@ -82,7 +84,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 launchStatus.style.color = 'green';
                 launchStatus.innerHTML = 'Shuttle is Ready for Launch';
                 fuelStatus.innerHTML = 'Fuel level high enough for launch';
-                cargoStatus.innerHTML = 'Cargo mass low enough for Launch';
+                cargoStatus.innerHTML = 'Cargo mass low enough for launch';
             }
         }
     
